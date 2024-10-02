@@ -27,11 +27,7 @@ a{
 li{
     list-style: none;;
 }
-.flex_common{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 section{
 
     margin-bottom: 30px;
@@ -41,45 +37,90 @@ section{
 
 /* nav_section start */
 
-section.header{
-    background-color: #ece9e1;
-
-}
-
-li.nav__list a{
-    font-size: 1.5rem;
-}
-li.nav__list a:hover {
-    padding-bottom: 5px;
-    border-bottom: 1px solid #e43c13;
-
-}
-.nav__menu{
+.flex_common{
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
 }
-.header{
-    position: relative;
+
+.nav__menu li {
+    display: inline-block;
+    margin: 0px 10px;
 }
-.menu__icon{
-    display: none ;
+
+.mobile_menubar{
+  position: relative;
+  display: block;
+  width : 30px;
+  height: 30px;
+  cursor: pointer;
+  display: none;
 }
+
+.mobile_menubar .bar,
+.mobile_menubar::after,
+.mobile_menubar::before{
+   content: " ";
+   display: block;
+   width: 100%;
+   height: 4px;
+   border-radius: 3px;
+   background-color: #e43c13;
+   margin: 4px 0px;
+   transition: 4ms;
+
+}
+
+.mobile_menubar.active::before{
+    transform: rotate(-45deg) translate(-6px, 5px);
+}
+
+.mobile_menubar.active .bar{
+   opacity: 0;
+
+}
+
+.mobile_menubar.active::after{
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+.nav__list a:hover{
+      color: #000000;
+      border-bottom: 1px solid #d6536d;
+      transition: .5s;
+}
+
 
 /* nav_section end */
+@media  (960px >= width) {
+    .mobile_menubar{
+        display: block;
+    }
 
-
-
-@media screen and (width <= 700px) {
-    ul.nav__menu{
+    .nav__menu li{
+        display: block;
+        text-align: center;
+        margin: 10px 0px;
+    }
+   
+    nav.nav__section {
+        content: "";
         position: absolute;
-        top: 100px;
+        align-content: center;
+        display: none;
+        height: 16rem;
+        margin: 0;
         left: 0;
         right: 0;
-        flex-direction: column;
-        text-align: center;
-        overflow: hidden;
+        top: 100px;
+        background-color: rgba(0, 0, 0, 0.3);
     }
-    .menu__icon{
-        display: block ;
+    nav.nav__section.active{
+        display: block;
     }
+
 }
+
+
+
+
+
