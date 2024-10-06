@@ -2,6 +2,7 @@
     --color-primary:#ece9e1;
     --color-accent:#e43c13;
     --color-secondary:#d6536d;
+    --color-blue:#24ade3;
     /* --color-secondary: #efb11d; */
 
 }
@@ -33,7 +34,26 @@ section{
     margin-bottom: 30px;
     padding: 10px 50px;
 }
+.hero_btn .btn{
+    font-size: 15px;
+    padding: 10px 25px;
+    border: 1px solid #f38224;
+    display: inline-flex;
+    gap: 5px;
+}
 
+
+.hero_btn a.btn::after{
+    position: relative;
+    content: "";
+   background-image: sc;
+    
+
+}
+p{
+    font-size: 15px;
+    margin: 10px 0;
+}
 
 /* nav_section start */
 
@@ -84,16 +104,71 @@ section{
     transform: rotate(45deg) translate(-6px, -6px);
 }
 .nav__list a:hover{
-      color: #000000;
-      border-bottom: 1px solid #d6536d;
-      transition: .5s;
+      color: var(--color-blue);
+      border-bottom: 1px solid #f38224;
+      transition: .3s;
+      font-weight: 500;
+}
+.hero_btn{
+    color: #e43c13;
+    margin-top: 20px;
+}
+.hero_btn a.btn:hover{
+    color: #24ade3;
+   
+}
+
+h1{
+    font-size: 35px;
 }
 
 
 /* nav_section end */
+
+/* typing effect start */
+
+p.typing_wrapper {
+    font-size: 2.5rem;
+    color: #24ade3;
+    font-weight: bold;
+    overflow: hidden;
+  }
+  p.typing_wrapper span.typed-text {
+    font-weight: normal;
+    color: var(--color-accent);
+  }
+  p.typing_wrapper span.cursor {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    margin-left: 0.1rem;
+    width: 3px;
+    animation: blink 1s infinite;
+  }
+  p.typing_wrapper span.cursor.typing {
+    animation: none;
+  }
+  @keyframes blink {
+    0%  { background-color: var(--color-accent)}
+    49% { background-color: var(--color-accent) }
+    50% { background-color: transparent; }
+    99% { background-color: transparent; }
+    100%  { background-color:  var(--color-accent) }
+  }
+
+
+/* typing effect end */
+
+
+
+
+
 @media  (960px >= width) {
     .mobile_menubar{
         display: block;
+    }
+
+    a.nav__link{
+        color: var(--color-primary) ;
     }
 
     .nav__menu li{
@@ -112,7 +187,7 @@ section{
         left: 0;
         right: 0;
         top: 100px;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: var(--color-secondary);
     }
     nav.nav__section.active{
         display: block;
